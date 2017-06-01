@@ -1,12 +1,12 @@
 #+TITLE: org-mode 测试
-#+DATE: <2017-06-01 Sun 17:00>
+#+DATE: <2017-06-01>
 #+TAGS: emacs, orgmode, hexo
 #+LAYOUT: post
 #+CATEGORIES: orgmode
 
 * Orgmode
 org-mode 测试
-Hello,orgmode
+Hello, =org-mode=
 #+BEGIN_HTML
 <!--more-->
 #+END_HTML

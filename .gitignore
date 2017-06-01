@@ -1,3 +1,5 @@
+hexo-org-cache/
+
 .DS_Store
 Thumbs.db
 db.json
