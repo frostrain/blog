@@ -1,0 +1,25 @@
+#+TITLE: org-mode 测试
+#+DATE: <2017-06-01 Sun 17:00>
+#+TAGS: emacs, orgmode, hexo
+#+LAYOUT: post
+#+CATEGORIES: orgmode
+
+* Orgmode
+org-mode 测试
+Hello,orgmode
+#+BEGIN_HTML
+<!--more-->
+#+END_HTML
+** [#B] Why org
+#+BEGIN_SRC js
+  console.log('hello');
+#+END_SRC
+- [X] foo
+- [ ] bar
+
+| foo | bar |
+|-----+-----|
+| fff | bbb |
+| abc | def |
+
+我 *编* 不下去了。。

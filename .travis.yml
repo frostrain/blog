@@ -4,8 +4,6 @@ branches:
 
 language: node_js
 
-sudo: false
-
 node_js: stable
 
 cache:
@@ -15,13 +13,24 @@ cache:
 before_install:
   - git config --global user.name "frostrain"
   - git config --global user.email "frostrain@outlook.com"
+  # Configure $PATH: Executables are installed to $HOME/bin
+  - export PATH="$HOME/bin:$PATH"
+  # Download the makefile to emacs-travis.mk
+  - wget 'https://raw.githubusercontent.com/flycheck/emacs-travis/master/emacs-travis.mk'
+  # Install Emacs (according to $EMACS_VERSION) and Cask
+  - make -f emacs-travis.mk install_emacs
+  - make -f emacs-travis.mk install_cask
+  # Install Texinfo, if you need to build info manuals for your project
+  # - make -f emacs-travis.mk install_texinfo
 
 install:
+  # 安装 emacs
+  - cask install
   - npm install
 
 script:
-  - hexo g --silent
-
+  - hexo g
+# 提交生成的 静态html 到github的pages
 after_script:
   - cd public
   - git init
@@ -31,4 +40,5 @@ after_script:
 
 env:
   global:
-    - GH_REF: github.com/frostrain/blog.git
+    - GH_REF=github.com/frostrain/blog.git
+    - EMACS_VERSION=24.5
