@@ -35,6 +35,8 @@ _下划线_
 ** 图片测试
 [[file:郁金香.jpg][郁金香]]
 
+blog 的自动构建状况
+[[https://travis-ci.org/frostrain/blog][file:https://api.travis-ci.org/frostrain/blog.svg?branch=master]]
 * Footnotes
 
 [fn:1] 脚注测试
