@@ -4,6 +4,9 @@
 #+LAYOUT: post
 #+CATEGORIES: orgmode
 
+title: org-mode
+-----
+
 * org-mode
 org-mode [[内链测试]]
 Hello, =org-mode=
