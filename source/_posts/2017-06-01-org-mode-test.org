@@ -5,11 +5,19 @@
 #+CATEGORIES: orgmode
 
 * Orgmode
-org-mode 测试
+org-mode [[内链测试]]
 Hello, =org-mode=
 #+BEGIN_HTML
 <!--more-->
 #+END_HTML
+
+_下划线_
++删除线+
+*粗体* 测试
+分割线:
+-----
+下标： H_{2}O
+上标： E=mc^{2}
 ** [#B] Why org
 #+BEGIN_SRC js
   console.log('hello');
@@ -21,5 +29,12 @@ Hello, =org-mode=
 |-----+-----|
 | fff | bbb |
 | abc | def |
+** 内链测试
+脚注测试[fn:1]
+** 标签测试                                                                                     :tag1:foobar:
+** 图片测试
+[[file:郁金香.jpg][郁金香]]
 
-我 *编* 不下去了。。
+* Footnotes
+
+[fn:1] 脚注测试
