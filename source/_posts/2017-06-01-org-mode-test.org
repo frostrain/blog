@@ -2,10 +2,17 @@
 #+DATE: <2017-06-01>
 #+TAGS: emacs, orgmode, hexo
 #+LAYOUT: post
-#+CATEGORIES: orgmode
+#+CATEGORIES: org-mode
 
 title: org-mode
+categories: org-mode
+tags:
+- emacs
+- org-mode
+- hexo
 -----
+# 看起来 hexo 更新之后导致 front-matter 解析发生了变化?
+# 貌似必须在文件中写上一种 hexo 的 front-matter, 否则解析会出错..
 
 * org-mode
 org-mode [[内链测试]]
