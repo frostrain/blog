@@ -4,7 +4,7 @@
 #+LAYOUT: post
 #+CATEGORIES: orgmode
 
-* Orgmode
+* org-mode
 org-mode [[内链测试]]
 Hello, =org-mode=
 #+BEGIN_HTML
