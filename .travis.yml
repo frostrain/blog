@@ -1,5 +1,5 @@
 language: node_js
-
+dist: trusty
 node_js: stable
 
 branches:
@@ -38,4 +38,4 @@ after_script:
 env:
   global:
     - GH_REF=github.com/frostrain/blog.git
-    - EMACS_VERSION=24.5
+    - EMACS_VERSION=25.2
