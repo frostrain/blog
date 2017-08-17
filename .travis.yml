@@ -11,6 +11,7 @@ branches:
 #    - node_modules
 
 before_install:
+  - sudo apt-get install -qq g++ build-essential
   - git config --global user.name "frostrain"
   - git config --global user.email "frostrain@outlook.com"
   # Configure $PATH: Executables are installed to $HOME/bin
