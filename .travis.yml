@@ -16,11 +16,9 @@ before_install:
   # Configure $PATH: Executables are installed to $HOME/bin
   - export PATH="$HOME/bin:$PATH"
   # Download the makefile to emacs-travis.mk
-  - mkdir emacs && cd emacs
   - wget 'https://raw.githubusercontent.com/flycheck/emacs-travis/master/emacs-travis.mk'
   # 安装 emacs
   - make -f emacs-travis.mk install_emacs
-  - cd ..
   # node 包可能需要安装的组件...
   - sudo apt-get install g++ build-essential
 
@@ -40,4 +38,4 @@ after_script:
 env:
   global:
     - GH_REF=github.com/frostrain/blog.git
-    - EMACS_VERSION=24.5
+    - EMACS_VERSION=25.2
