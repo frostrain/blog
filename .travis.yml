@@ -11,15 +11,18 @@ branches:
 #    - node_modules
 
 before_install:
-  - sudo apt-get install -qq g++ build-essential
   - git config --global user.name "frostrain"
   - git config --global user.email "frostrain@outlook.com"
   # Configure $PATH: Executables are installed to $HOME/bin
   - export PATH="$HOME/bin:$PATH"
   # Download the makefile to emacs-travis.mk
+  - mkdir emacs && cd emacs
   - wget 'https://raw.githubusercontent.com/flycheck/emacs-travis/master/emacs-travis.mk'
   # 安装 emacs
   - make -f emacs-travis.mk install_emacs
+  - cd ..
+  # node 包可能需要安装的组件...
+  - sudo apt-get install g++ build-essential
 
 install:
   - npm install
