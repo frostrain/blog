@@ -30,7 +30,6 @@ skip_render:
 # org-mode
 org:
   emacs: 'emacs'
-  emacsclient: 'emacsclient'
   cachedir: './hexo-org-cache/'
 
 # Writing
