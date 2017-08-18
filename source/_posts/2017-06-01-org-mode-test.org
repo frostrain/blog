@@ -15,7 +15,7 @@ tags:
 # 貌似必须在文件中写上一种 hexo 的 front-matter, 否则解析会出错..
 
 * org-mode
-org-mode [[内链测试]]
+org-mode [[内链测试][内链测试文本]]
 Hello, =org-mode=
 #+BEGIN_HTML
 <!--more-->
@@ -43,10 +43,11 @@ _下划线_
 脚注测试[fn:1]
 ** 标签测试                                                                                     :tag1:foobar:
 ** 图片测试
+# 文件链接会变成 a 标签...无法显示 img 标签
 [[file:郁金香.jpg][郁金香]]
 
 blog 的自动构建状况
-[[https://travis-ci.org/frostrain/blog][file:https://api.travis-ci.org/frostrain/blog.svg?branch=master]]
+[[https://api.travis-ci.org/frostrain/blog.svg?branch%3Dmaster][https://api.travis-ci.org/frostrain/blog.svg?branch=master]]
 * Footnotes
 
 [fn:1] 脚注测试
