@@ -1,5 +1,5 @@
 #+TITLE: org-mode 中的表格
-#+DATE: <2017-06-01>
+#+DATE: <2017-08-18>
 #+TAGS: emacs, org-mode
 #+LAYOUT: post
 #+CATEGORIES: org-mode
@@ -33,7 +33,7 @@ tags:
 #+END_SRC
 ** 创建表格
 *** 手动创建表格
-org-mode 中的表格使用 竖线 "|" 来作为分隔符, 两个 "|" 之间的内容自动变成 单元格的内容
+org-mode 中的表格使用 竖线 "|" 来作为分隔符, 两个 "|" 之间的内容自动变成 单元格的内容.
 我们只要向下面这样写, org-mode 会自动将其识别为表格
 #+BEGIN_SRC org
 | foo | bar
@@ -47,7 +47,7 @@ org-mode 中的表格使用 竖线 "|" 来作为分隔符, 两个 "|" 之间的�
 - 在单元格上按 =C-c C-c= 可以重新自动格式化表格
 - 使用 =C-c -= 可以在当前行的下一行插入 水平分割线
 *** 从选区创建表格
-除了手动创建表格以外, 还有一种从 *选区* 创建表格的方式
+除了手动创建表格以外, 还有一种从 *选区* 创建表格的方式.
 比如有一段文本
 #+BEGIN_EXAMPLE
 foo bar
@@ -61,6 +61,7 @@ org-table-create-or-convert-from-region 命令可以自动将下面的字符识�
 - 逗号
 - TAB
 - 一个空格
+
 另外有不同的 *前缀* 时, 这个命令有不同的作用
 - 如果有 数字前缀N, 则以 N个连续空格 作为分隔符
 - 如果有 一个 / 两个 前缀命令, 则以 CVS / TAB 作为分隔符
@@ -101,9 +102,8 @@ org-table-edit-field (C-c `, 注意这里的按键是 反引号 不是 引号) �
 - 表格文本的 *换行* 问题
   单元格中不支持换行, 也就是说不允许一个单元格的内容有多行文本
 - 表格中 "|" 是作为 分隔符 使用的, 如果我们要将其作为 单元格的内容 来使用, 需要输入 \vert
-  可以用 org-toggle-pretty-entities 命令将其显示为 UTF-8 字符
-  实际上 表格 中也是有很多 转义字符 的
-  详细见 [[http://orgmode.org/manual/Special-symbols.html#Special-symbols]]
+  可以用 org-toggle-pretty-entities 命令将其显示为 UTF-8 字符.
+  实际上 表格 中也是有很多 转义字符 的, 详细见 [[http://orgmode.org/manual/Special-symbols.html#Special-symbols]]
 - 换行操作
   | foo | bar | foo2 | bar2 |
   比如我想在上面的 foo2 前面插入一个换行符, 也就是变成两行:
