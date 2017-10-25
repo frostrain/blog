@@ -13,19 +13,25 @@ tags:
 
 * gimp 简介
 [[https://www.gimp.org/][gimp]] 是一个类似 photoshop 的开源且免费的图像处理软件.
-两者的很多功能都相似, 不过键位差别还是很大的, 如果你习惯使用 ps 的键位也可以试试 [[https://www.gimpshop.com/][gimpshop]] 这种分支.
+两者的很多功能基本相同, 不过键位差别还是很大的, 如果你习惯使用 ps 的键位也可以试试 [[https://www.gimpshop.com/][gimpshop]] 这种分支.
 
-本文将简单介绍如何在 gimp 中使用 scheme 来进行操作.
-gimp 也支持 python, 不过这里只介绍 scheme 的操作
+本文将简单介绍如何在 gimp 中使用 scheme(lisp的一种方言) 来进行操作, 当然前提是假设你知道如何编写 lisp 或者类似的方言.
+
+另外 gimp 也支持 python 脚本, 不过这里只介绍 scheme 的操作
+
+#+BEGIN_HTML
+<!--more-->
+#+END_HTML
+
 * 用 scheme 操作 gimp
 打开gimp -> Filters -> Script-Fu -> Console
-就会发现出现了一个 scheme 的交互控制台, 可以在里面直接输入命令然后 *按回车* 执行, 也可以在编辑器中写好之后复制到输入框中按回车执行
+就会发现出现了一个 scheme 的交互控制台, 可以在里面直接输入命令然后 *按回车* 执行, 也可以在其他编辑器中写好之后复制到输入框中按回车执行
 
 那么现在的问题是, gimp 的 api 手册在哪?
 
-实际上我还真没有找到 scheme 版的 api 手册, 但是我们通过查看 [[https://developer.gimp.org/api/2.0/libgimp/index.html]] 的api, 可以自己转换为 scheme 版的 api
+实际上我还真没有找到 scheme 版的 api 手册, 但是通过查看 [[https://developer.gimp.org/api/2.0/libgimp/index.html]] 的api, 可以自己转换为 scheme 版的 api
 
-比如 https://developer.gimp.org/api/2.0/libgimp/libgimp-gimpguides.html 里面有一个 gimp_image_add_vguide() 函数, 这个函数可以添加 垂直的辅助线.
+比如 https://developer.gimp.org/api/2.0/libgimp/libgimp-gimpguides.html 里面有一个 =gimp_image_add_vguide()= 函数, 这个函数可以添加 垂直的辅助线.
 在 scheme 里面就可以这样写
 #+BEGIN_SRC scheme
   ;; 在 1图x坐标256处 添加一个 垂直辅助线
@@ -37,6 +43,7 @@ gimp 也支持 python, 不过这里只介绍 scheme 的操作
 * 一个添加辅助线的例子
 list 中的每一个 cons 是一个坐标点(x和y, x是添加垂直辅助线, y添加水平辅助线), 对坐标点进行添加 guide
 #+BEGIN_SRC scheme
+  ;; 把这段代码直接复制到输入框中按回车即可执行
   (let* ((pos-list (list (cons 601 295) (cons 801 439) (cons 183 556) (cons 383 700)))
          (image-id 1)
          (set-guide (lambda (pos)
@@ -48,7 +55,7 @@ list 中的每一个 cons 是一个坐标点(x和y, x是添加垂直辅助线, y
 这里的 *begin* 等同于 lisp 中的 *progn*, 不过是 scheme 中的写法
 scheme 和 lisp 的差别见 [[https://www.cs.utexas.edu/~novak/schemevscl.html]]
 * 脚本文件
-除了在控制台中直接执行脚本外, 也可以将脚本保存到 scm 文件中.
+除了在控制台中直接执行脚本外, 也可以将脚本保存到 scm 文件中来运行.
 不过 scm 文件必须放在指定的位置才能执行,
-ubuntu 的路径类似 /usr/share/gimp/2.0/scripts
+ubuntu 的路径类似 /usr/share/gimp/2.0/scripts,
 也可以研究下这个路径里面自带的 scm 文件
