@@ -1,0 +1,67 @@
+#+TITLE: ssr 二维码解析
+#+DATE: <2017-10-25>
+#+TAGS: ssr
+#+LAYOUT: post
+#+CATEGORIES: web
+
+title: ssr 二维码解析
+categories: web
+tags:
+- ssr
+-----
+
+* ssr 二维码解析
+ssr (上网工具, 知道的人自然能明白本文说的是啥) 的 *二维码* 的字符串里面是有服务器的配置信息的, 可以写个小程序解析出来, 方便手动配置
+#+BEGIN_HTML
+<!--more-->
+#+END_HTML
+实际上配置信息都是 base64 编码的, 只需要解码一下即可, 不同的配置项使用 冒号 连接.
+
+
+ss 的二维码也类似, 这里不举例子.
+
+
+下面是一个 php 的例子
+#+BEGIN_SRC php
+  <?php
+  /*
+    将代码保存到 parser.php 文件中, 然后在命令行中使用
+    php parser.php SSR_QR_CODE_STRING
+    就可以解析出来服务器配置信息了
+  ,*/
+
+  // 获取命令行参数
+  $str = $argv[1];
+
+  function parse_ssr_qr_code($code) {
+      $prefix = "ssr://";
+      $pos = strpos($code, $prefix);
+      if ($pos !== false) {
+          $code = substr($code, $pos + strlen($prefix));
+      }
+
+
+      $code = base64_decode($code);
+
+      // "/" 后面的内容全部不需要
+      $pos2 = strpos($code, "/");
+      if ($pos2 !== false) {
+          $code = substr($code, 0, $pos2);
+      }
+
+      $arr = explode(":", $code);
+
+      $params = [
+          "server" => $arr[0],
+          "server_port" => $arr[1],
+          // 密码还需要解码一次
+          "password" => base64_decode($arr[5]),
+          "method" => $arr[3],
+          "protocol" => $arr[2],
+          "obfs" => $arr[4],
+      ];
+      return $params;
+  }
+
+  echo json_encode(parse_ssr_qr_code($str))."\n";
+#+END_SRC

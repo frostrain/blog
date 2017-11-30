@@ -35,13 +35,13 @@ tags:
 在 scheme 里面就可以这样写
 #+BEGIN_SRC scheme
   ;; 在 1图x坐标256处 添加一个 垂直辅助线
-  ;; 这里 1 对应 image_ID (当期打开的第1个图片)
+  ;; 这里 1 对应 image_ID (当前打开的第1个图片)
   ;; 256 对应 xposition
   (gimp-image-add-hguide 1 256)
 #+END_SRC
 也就是说 api 里面函数名的 *下划线* 在 scheme 里面要全部写成 *横岗*
 * 一个添加辅助线的例子
-list 中的每一个 cons 是一个坐标点(x和y, x是添加垂直辅助线, y添加水平辅助线), 对坐标点进行添加 guide
+list 中的每一个 cons 是一个坐标点(x和y, x是添加垂直辅助线, y添加水平辅助线), 这里对一系列坐标点添加辅助线
 #+BEGIN_SRC scheme
   ;; 把这段代码直接复制到输入框中按回车即可执行
   (let* ((pos-list (list (cons 601 295) (cons 801 439) (cons 183 556) (cons 383 700)))
